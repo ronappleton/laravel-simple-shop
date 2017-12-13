@@ -1,0 +1,16 @@
+@extends(config('laravel-simple-shop-module.layout_file'))
+
+@section('title', 'Products')
+
+@section('content_header')
+    <h1>Alter Product</h1>
+@stop
+
+@section('content')
+    {{ Form::model($model, ['route' => ['product.update', $model], 'method' => 'PUT']) }}
+    @include('laravel-simple-shop-module::products.form')
+    <div class="form-group">
+        {{ Form::submit('Alter Product', ['class' => 'btn btn-sm btn-success form-control']) }}
+    </div>
+    {{ Form::close() }}
+@endsection
