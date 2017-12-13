@@ -8,7 +8,7 @@
 
 @section('content')
     {{ Form::model($model, ['route' => ['product_category.update', $model], 'method' => 'PUT']) }}
-    @include('laravel-simple-shop-module::product_category.form')
+    @include('simple-shop::product_category.form')
     <div class="form-group">
         {{ Form::submit('Alter Product Category', ['class' => 'btn btn-sm btn-success form-control']) }}
     </div>
