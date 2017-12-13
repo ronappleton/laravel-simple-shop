@@ -3,6 +3,8 @@
 return [
     "layout_file" => 'layout.master',
 
+    "adminMiddleware" => ['web', 'auth'],
+
     "adminMenuItems" => [
         [
             'text' => 'Simple Shop',
