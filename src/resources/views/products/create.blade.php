@@ -8,6 +8,6 @@
 
 @section('content')
     {!! Form::open(['route' => 'product.store']) !!}
-    @include('simple-shop::form')
+    @include('simple-shop::products.form')
     {{ Form::close() }}
 @endsection
