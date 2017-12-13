@@ -52,7 +52,7 @@ class ProductCategoryController extends Controller
      */
     public function show(ProductCategory $productCategory)
     {
-        return view('simple-shop::product_category.show', ['model' => 'productCategory']);
+        return view('simple-shop::product_category.show', ['model' => $productCategory]);
     }
 
     /**
@@ -63,7 +63,7 @@ class ProductCategoryController extends Controller
      */
     public function edit(ProductCategory $productCategory)
     {
-        return view('simple-shop::product_category.edit', ['model' => 'productCategory']);
+        return view('simple-shop::product_category.edit', ['model' => $productCategory]);
     }
 
     /**
