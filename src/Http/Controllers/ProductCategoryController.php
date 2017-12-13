@@ -35,7 +35,13 @@ class ProductCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string|unique:product_categories,name'
+        ]);
+
+        ProductCategory::create($request->toArray());
+
+        return view('simple-shop::product_category.index');
     }
 
     /**
@@ -69,7 +75,13 @@ class ProductCategoryController extends Controller
      */
     public function update(Request $request, ProductCategory $productCategory)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string|unique:product_categories,name'
+        ]);
+
+        $productCategory::update(['name' => $request->name]);
+
+        return view('simple-shop::product_category.index');
     }
 
     /**
