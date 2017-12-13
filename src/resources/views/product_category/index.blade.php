@@ -12,10 +12,8 @@
             <div class="box-header"><a href="{{ route('product_category.create') }}" class="btn btn-sm btn-success">Add New Product Category</a>
             </div>
             <div class="box-body">
-                <p>
-                </p>
                 <div class="form-group">
-                    <table class="table table-bordered" id="users">
+                    <table class="table table-bordered table-hover dataTable" id="product-categories">
                         <thead>
                         <tr>
                             <th>Name</th>
@@ -32,7 +30,7 @@
 @push('scripts')
     <script>
         $(function () {
-            $('#users').DataTable({
+            $('#product-categories').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: '{{ url('shop-resource/allCategories') }}',

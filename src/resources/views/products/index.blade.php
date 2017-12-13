@@ -9,13 +9,13 @@
 @section('content')
     <div class="col-xs-12">
         <div class="box">
-            <div class="box-header"><a href="{{ route('product_category.create') }}" class="btn btn-sm btn-success">Add New Product</a>
+            <div class="box-header"><a href="{{ route('product.create') }}" class="btn btn-sm btn-success">Add New Product</a>
             </div>
             <div class="box-body">
                 <p>
                 </p>
                 <div class="form-group">
-                    <table class="table table-bordered" id="users">
+                    <table class="table table-bordered table-hover dataTable" id="products">
                         <thead>
                         <tr>
                             <th>Name</th>
@@ -32,7 +32,7 @@
 @push('scripts')
     <script>
         $(function () {
-            $('#users').DataTable({
+            $('#products').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: '{{ url('shop-resource/allCategories') }}',
