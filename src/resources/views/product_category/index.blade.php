@@ -29,7 +29,7 @@
             $('#users').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ url('admin/ajax-resources/allUsers') }}',
+                ajax: '{{ url('shop-resource/allCategories') }}',
                 columns: [
                     {data: 'name', name: 'name'},
                     {data: 'action', name: 'action', orderable: false, searchable: false}
