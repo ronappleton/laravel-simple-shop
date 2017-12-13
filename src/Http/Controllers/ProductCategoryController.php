@@ -79,7 +79,7 @@ class ProductCategoryController extends Controller
             'name' => 'required|string|unique:product_categories,name'
         ]);
 
-        $productCategory::update(['name' => $request->name]);
+        $productCategory->update(['name' => $request->name]);
 
         return view('simple-shop::product_category.index');
     }
