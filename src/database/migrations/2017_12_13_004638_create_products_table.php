@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->float('price')->default(0);
             $table->timestamps();
 
-            $table->foreign('product_category_id')->references('product_categories')->on('id')->onUpdate('RESTRICT')->onDelete('RESTRICT');
+            $table->foreign('product_category_id')->references('id')->on('product_categories')->onUpdate('RESTRICT')->onDelete('RESTRICT');
         });
     }
 
