@@ -1,13 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ron
- * Date: 12/13/17
- * Time: 9:23 PM
- */
 
 namespace RonAppleton\LaravelSimpleShopModule\Http\Controllers;
+
 use RonAppleton\LaravelSimpleShopModule\ProductCategory;
+use Yajra\DataTables\Facades\DataTables;
+
 
 class ResourceController extends Controller
 {
