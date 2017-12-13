@@ -46,7 +46,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('laravel-simple-shop-module::products.index');
     }
 
     /**

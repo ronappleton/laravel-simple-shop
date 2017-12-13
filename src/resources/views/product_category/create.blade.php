@@ -8,7 +8,7 @@
 
 @section('content')
     {!! Form::open(['route' => 'product_category.store']) !!}
-    @include('laravel-simple-shop-module::product_categories.form')
+    @include('laravel-simple-shop-module::product_category.form')
     <div class="form-group">
         {{ Form::submit('Add Product Category', ['class' => 'btn btn-sm btn-success form-control']) }}
     </div>

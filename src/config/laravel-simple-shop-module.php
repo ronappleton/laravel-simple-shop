@@ -16,12 +16,12 @@ return [
                     'submenu' => [
                         [
                             'text' => 'Products',
-                            'url' => 'products',
+                            'url' => 'product',
                             'icon' => 'dollar'
                         ],
                         [
                             'text' => 'Product Categories',
-                            'url' => 'admin/users/extra/nonSubscribers',
+                            'url' => 'product_category',
                             'icon' => 'beer'
                         ],
                     ]

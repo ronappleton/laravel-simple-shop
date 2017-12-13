@@ -14,7 +14,7 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('laravel-simple-shop-module::product_category.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('laravel-simple-shop-module::product_category.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class ProductCategoryController extends Controller
      */
     public function show(ProductCategory $productCategory)
     {
-        //
+        return view('laravel-simple-shop-module::product_category.show', compact('productCategory'));
     }
 
     /**
@@ -57,7 +57,7 @@ class ProductCategoryController extends Controller
      */
     public function edit(ProductCategory $productCategory)
     {
-        //
+        return view('laravel-simple-shop-module::product_category.edit', compact('productCategory'));
     }
 
     /**
@@ -75,11 +75,11 @@ class ProductCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \RonAppleton\LaravelSimpleShopModuleg\ProductCategory  $productCategory
+     * @param  \RonAppleton\LaravelSimpleShopModule\ProductCategory  $productCategory
      * @return \Illuminate\Http\Response
      */
     public function destroy(ProductCategory $productCategory)
     {
-        //
+        $productCategory->delete();
     }
 }
