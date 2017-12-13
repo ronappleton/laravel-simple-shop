@@ -14,7 +14,7 @@ class ProductCategoryController extends Controller
      */
     public function index()
     {
-        return view('laravel-simple-shop-module::product_category.index');
+        return view('simple-shop::product_category.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        return view('laravel-simple-shop-module::product_category.create');
+        return view('simple-shop::product_category.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class ProductCategoryController extends Controller
      */
     public function show(ProductCategory $productCategory)
     {
-        return view('laravel-simple-shop-module::product_category.show', compact('productCategory'));
+        return view('simple-shop::product_category.show', ['model' => 'productCategory']);
     }
 
     /**
@@ -57,7 +57,7 @@ class ProductCategoryController extends Controller
      */
     public function edit(ProductCategory $productCategory)
     {
-        return view('laravel-simple-shop-module::product_category.edit', compact('productCategory'));
+        return view('simple-shop::product_category.edit', ['model' => 'productCategory']);
     }
 
     /**

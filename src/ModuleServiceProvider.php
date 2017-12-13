@@ -67,17 +67,17 @@ class ModuleServiceProvider extends ServiceProvider
     {
         $viewPath = __DIR__ . '/resources/views';
 
-        $this->loadViewsFrom($viewPath, 'laravel-simple-shop-module');
+        $this->loadViewsFrom($viewPath, 'simple-shop');
 
         $this->publishes([
-            $viewPath => base_path('resources/views/vendor/laravel-simple-shop-module'),
+            $viewPath => base_path('resources/views/vendor/simple-shop'),
         ], 'views');
     }
 
     private function publishers()
     {
         $this->publishes([
-            __DIR__ . '/config/laravel-simple-shop-module.php' => config_path('laravel-simple-shop-module.php'),
+            __DIR__ . '/config/simple-shop.php' => config_path('simple-shop.php'),
         ]);
     }
 
