@@ -93,12 +93,12 @@ class ModuleServiceProvider extends ServiceProvider
                     [
                         'text' => 'Products',
                         'url' => 'product',
-                        'icon' => 'motorcycle'
+                        'icon' => 'list'
                     ],
                     [
                         'text' => 'Product Category',
                         'url' => 'product_category',
-                        'icon' => 'list',
+                        'icon' => 'motorcycle',
                     ]
                 ]
             ]);
