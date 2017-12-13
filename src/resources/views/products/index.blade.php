@@ -7,20 +7,26 @@
 @stop
 
 @section('content')
-    <p>
-        <a href="{{ route('product_category.create') }}" class="btn btn-sm btn-success">Add New Product</a>
-    </p>
-    <div class="form-group">
-        <table class="table table-bordered" id="users">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-        </table>
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header"><a href="{{ route('product_category.create') }}" class="btn btn-sm btn-success">Add New Product</a>
+            </div>
+            <div class="box-body">
+                <p>
+                </p>
+                <div class="form-group">
+                    <table class="table table-bordered" id="users">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-
 @stop
 
 @push('scripts')
