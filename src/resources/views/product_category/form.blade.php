@@ -15,6 +15,9 @@
         <!-- /input-group -->
         <br>
         <br>
+        <div class="form-group">
+            {{ Form::submit(empty($model) ? 'Add Product Category' : 'Alter Product Category', ['class' => 'btn btn-sm btn-success form-control']) }}
+        </div>
     </div>
     <!-- /.box-body -->
 </div>
