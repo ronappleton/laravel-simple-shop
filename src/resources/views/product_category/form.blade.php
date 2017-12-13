@@ -1,9 +1,20 @@
-<div class="input-group {{ $errors->has('name') ? 'has-error' : '' }}">
-    <i class="material-icons">motorcycle</i>
-    {{ Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => 'Name...']) }}
-    @if ($errors->has('name'))
-        <span class="help-block">
+<div class="box box-info">
+    <div class="box-header with-border">
+        <h3 class="box-title">Input Addon</h3>
+    </div>
+    <div class="box-body">
+        <div class="input-group {{ $errors->has('name') ? 'has-error' : '' }}">
+            <span class="input-group-addon"><i class="material-icons">motorcycle</i></span>
+            {{ Form::text('name', old('name'), ['class' => 'form-control', 'placeholder' => 'Name...']) }}
+            @if ($errors->has('name'))
+                <span class="help-block">
                             <strong>{{ $errors->first('name') }}</strong>
                         </span>
-    @endif
+            @endif
+        </div>
+        <!-- /input-group -->
+        <br>
+        <br>
+    </div>
+    <!-- /.box-body -->
 </div>
