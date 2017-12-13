@@ -3,6 +3,8 @@
 namespace RonAppleton\LaravelSimpleShopModule;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Contracts\Events\Dispatcher;
+use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 
 class ModuleServiceProvider extends ServiceProvider
 {
@@ -26,7 +28,7 @@ class ModuleServiceProvider extends ServiceProvider
     /**
      * Create a new service provider instance.
      *
-     * @param  \Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Illuminate\Contracts\Foundation\Application $app
      * @return void
      */
     public function __construct($app)
@@ -35,11 +37,12 @@ class ModuleServiceProvider extends ServiceProvider
         $this->app = $app;
     }
 
-    public function boot()
+    public function boot(Dispatcher $events)
     {
-        $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
+        $this->loadRoutesFrom(__DIR__ . '/Http/routes.php');
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadViews();
+        $this->addMenu($events);
         $this->publishers();
     }
 
@@ -51,7 +54,7 @@ class ModuleServiceProvider extends ServiceProvider
     {
         if (is_array($this->app->config['view']['paths'])) {
             foreach ($this->app->config['view']['paths'] as $viewPath) {
-                if (is_dir($appPath = $viewPath.'/vendor/'.$namespace)) {
+                if (is_dir($appPath = $viewPath . '/vendor/' . $namespace)) {
                     $this->app['view']->addNamespace($namespace, $appPath);
                 }
             }
@@ -76,5 +79,29 @@ class ModuleServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/config/laravel-simple-shop-module.php' => config_path('laravel-simple-shop-module.php'),
         ]);
+    }
+
+    private function addMenu($events)
+    {
+        $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
+            $event->menu->add('SHOP');
+            $event->menu->add([
+                'text' => 'Products',
+                'url' => '#',
+                'icon' => 'cart',
+                'submenu' => [
+                    [
+                        'text' => 'Products',
+                        'url' => 'product',
+                        'icon' => 'motorcycle'
+                    ],
+                    [
+                        'text' => 'Product Category',
+                        'url' => 'product_category',
+                        'icon' => 'list',
+                    ]
+                ]
+            ]);
+        });
     }
 }

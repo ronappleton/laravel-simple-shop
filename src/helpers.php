@@ -1,11 +1,34 @@
 <?php
 
-if(!function_exists('laravelSimpleShopMenuItems'))
-{
+if (!function_exists('laravelSimpleShopMenuItems')) {
     function laravelSimpleShopMenuItems()
     {
-        $config = require(config_path('laravel-simple-shop-module.php'));
-
-        return $config['adminMenuItems'];
+        return
+            [
+                [
+                    'text' => 'Simple Shop',
+                    'url' => '#',
+                    'icon' => 'cart',
+                    'submenu' => [
+                        [
+                            'text' => 'Products',
+                            'url' => '#',
+                            'icon' => 'dollar',
+                            'submenu' => [
+                                [
+                                    'text' => 'Products',
+                                    'url' => 'product',
+                                    'icon' => 'dollar'
+                                ],
+                                [
+                                    'text' => 'Product Categories',
+                                    'url' => 'product_category',
+                                    'icon' => 'beer'
+                                ],
+                            ]
+                        ],
+                    ],
+                ],
+            ];
     }
 }

@@ -1,4 +1,4 @@
-@extends(config('laravel-simple-shop-module.layout_file'))
+@extends('adminlte::page)
 
 @section('title', 'Products')
 
