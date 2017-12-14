@@ -4,6 +4,7 @@ namespace RonAppleton\LaravelSimpleShopModule\Http\Controllers;
 
 use RonAppleton\LaravelSimpleShopModule\Product;
 use Illuminate\Http\Request;
+use RonAppleton\LaravelSimpleShopModule\ProductCategory;
 
 class ProductController extends Controller
 {
@@ -24,7 +25,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('simple-shop::products.create');
+        $selectItems = ProductCategory::all()->pluck('name', 'id');
+        return view('simple-shop::products.create', compact('selectItems'));
     }
 
     /**
