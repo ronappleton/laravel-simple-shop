@@ -16,6 +16,7 @@
     "yajra/laravel-datatables-oracle": "~8.0",
     "laravelcollective/html": "~5.0",
     "laravel/framework": "5.5.*",
+    "ronappleton/menubuilder": "dev-master",
     "gloudemans/shoppingcart": "^2.4"
   },
   "autoload": {

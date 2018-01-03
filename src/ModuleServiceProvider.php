@@ -2,12 +2,13 @@
 
 namespace RonAppleton\LaravelSimpleShopModule;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Events\Dispatcher;
-use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
+use Illuminate\Support\ServiceProvider;
+use RonAppleton\MenuBuilder\Traits\AddsMenu;
 
 class ModuleServiceProvider extends ServiceProvider
 {
+    use AddsMenu;
     /**
      * The application instance.
      *
@@ -22,7 +23,7 @@ class ModuleServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'RonAppleton\LaravelUserManagementModule\Http\Controllers';
+    protected $namespace = 'RonAppleton\MenuBuilder\Http\Controllers';
 
 
     /**
@@ -42,8 +43,8 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__ . '/Http/routes.php');
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadViews();
-        $this->addMenu($events);
         $this->publishers();
+        $this->menuListener($events);
     }
 
     public function register()
@@ -81,27 +82,9 @@ class ModuleServiceProvider extends ServiceProvider
         ]);
     }
 
-    private function addMenu($events)
+
+
+    public function menuSidebar()
     {
-        $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
-            $event->menu->add('SHOP');
-            $event->menu->add([
-                'text' => 'Products',
-                'url' => '#',
-                'icon' => 'cart',
-                'submenu' => [
-                    [
-                        'text' => 'Products',
-                        'url' => 'product',
-                        'icon' => 'list'
-                    ],
-                    [
-                        'text' => 'Product Category',
-                        'url' => 'product_category',
-                        'icon' => 'motorcycle',
-                    ]
-                ]
-            ]);
-        });
     }
 }
